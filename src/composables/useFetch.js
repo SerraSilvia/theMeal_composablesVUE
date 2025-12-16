@@ -15,7 +15,6 @@ export function useFetch(url) {
         try {
             const res = await fetch(urlValue);
             if (!res.ok) {
-                // CORREGIDO: Uso de comillas invertidas ` `
                 throw new Error(`Error en fer la petició: ${res.status}`);
             }
             data.value = await res.json();
@@ -27,6 +26,5 @@ export function useFetch(url) {
         }
     };
 
-    // IMPRESCINDIBLE: Retornar las variables y la función
     return { data, error, loading, fetchData };
 }

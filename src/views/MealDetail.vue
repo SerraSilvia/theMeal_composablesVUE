@@ -82,7 +82,7 @@ watch(() => route.params.id, (newId) => {
                     </div>
                     
                     <a v-if="meal.strYoutube" :href="meal.strYoutube" target="_blank" class="youtube-btn">
-                        Ver en YouTube
+                        Veure en YouTube
                     </a>
                 </div>
             </div>
