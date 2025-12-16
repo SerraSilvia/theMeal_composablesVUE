@@ -1,39 +1,45 @@
-# SerraSilvia
+# MealDB Recipe Finder
 
-This template should help get you started developing with Vue 3 in Vite.
+Una aplicación de página única (SPA) responsiva construida con **Vue 3** para buscar recetas y ver instrucciones detalladas de cocina utilizando la API de TheMealDB.
 
-## Recommended IDE Setup
+## Características
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Buscador de Recetas**: Busca platos por nombre (búsqueda por defecto: "Chicken").
+- **Detalle de Receta**: Vista completa con imagen, etiquetas, lista dinámica de ingredientes con sus medidas, instrucciones paso a paso y enlace a YouTube.
+- **Diseño Responsivo**: Interfaz adaptable a móviles y escritorio (Grid/Flexbox y Tailwind CSS).
+- **Patrón Composable**: Implementación de lógica reutilizable (`useFetch`) para el consumo de APIs.
+- **Enrutamiento Dinámico**: Uso de Vue Router para la navegación y paso de parámetros (ID del plato).
 
-## Recommended Browser Setup
+## Stack Tecnológico
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- **Framework**: Vue 3 (Composition API, `<script setup>`)
+- **Routing**: Vue Router 4
+- **Estilos**: Tailwind CSS (vía CDN) & CSS Scoped personalizado
+- **API**: [TheMealDB](https://www.themealdb.com/api.php)
+- **Sistema de Módulos**: ES Modules nativos con `importmap` (Sin necesidad de bundlers como Webpack o Vite para ejecución básica).
 
-## Customize configuration
+## Estructura del Proyecto
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- `index.html`: Punto de entrada y gestión de dependencias vía `importmap`.
+- `index.js`: Inicialización de la app Vue y configuración del Router.
+- `App.vue`: Componente raíz.
+- `composables/useFetch.js`: Lógica reutilizable para peticiones HTTP y gestión de estado (loading, error, data).
+- `components/`: Componentes de UI reutilizables (`SearchBar`, `MealCard`).
+- `pages/`: Vistas principales (`Home`, `MealDetail`).
 
-## Project Setup
+## Cómo ejecutar
 
-```sh
-npm install
-```
+Dado que el proyecto utiliza ES Modules nativos y `importmap`, requiere un servidor HTTP local para evitar problemas de CORS o restricciones del protocolo `file://`.
 
-### Compile and Hot-Reload for Development
+1. **Descarga** los archivos del proyecto.
+2. **Inicia un servidor local** en la carpeta raíz:
+   - Con Python: `python3 -m http.server`
+   - Con Node.js: `npx http-server .`
+   - Con VS Code: Extensión "Live Server".
+3. **Abre** `http://localhost:8000` (o el puerto que indique tu servidor) en tu navegador.
 
-```sh
-npm run dev
-```
+## Uso de la API
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-# theMeal_composablesVUE
+Esta aplicación utiliza los endpoints públicos de prueba de TheMealDB:
+- Búsqueda: `https://www.themealdb.com/api/json/v1/1/search.php?s={termino}`
+- Detalle: `https://www.themealdb.com/api/json/v1/1/lookup.php?i={id}`
