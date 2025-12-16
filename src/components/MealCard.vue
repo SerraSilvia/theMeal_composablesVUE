@@ -19,12 +19,6 @@ const props = defineProps({
 
     <div class="card-content">
       <h3>{{ meal.strMeal }}</h3>
-      
-      <!-- Mostramos un previo de los pasos (instrucciones) -->
-      <div class="instructions-preview">
-        <h4>Preparación:</h4>
-        <p>{{ meal.strInstructions }}</p>
-      </div>
 
       <!-- Enllaç al detall -->
       <div class="card-actions">
@@ -32,7 +26,7 @@ const props = defineProps({
           :to="{ name: 'meal-detail', params: { id: meal.idMeal } }" 
           class="btn-detail"
         >
-          Ver receta completa
+          Veure recepta
         </RouterLink>
       </div>
     </div>

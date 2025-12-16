@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router';
     <div class="nav-container">
       <!-- LOGO: Clicar aquí et porta a la Home -->
       <RouterLink to="/" class="brand-logo">
-        🍳 Vue Receptes
+        Receptari Vue + TheMealDB
       </RouterLink>
 
       <!-- ENLLAÇOS DE NAVEGACIÓ -->
